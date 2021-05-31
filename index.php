@@ -66,7 +66,7 @@ function pg($a1, $r, $qtdn){
     }
     $dados_json = json_encode($array);
 
-    $fp = fopen($A . ".json", "a");
+    $fp = fopen($nomeArq . ".json", "w");
     fwrite($fp, $dados_json);
     fclose($fp);
     ?>

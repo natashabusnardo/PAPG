@@ -1,34 +1,63 @@
 <html>
-    <head>
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+<head>
+</head>
+<body>
+<?php include 'menu.php'; ?>
+  <form method="POST" action="">
+        <br><br>
+        <label>Nome do arquivo a ser carregado: </label>
+        <input id="nomearq" type="text" name="nomearq" placeholder="Nome do arquivo">
+        <button type="submit" name="gerar" id="gerar">Gerar gráfico</button>
+        <br><br>
+
+	</form>	
+  <?php
+    $nomeArq = $_POST['nomearq'];
+    $arquivo = file_get_contents($nomeArq . ".json");
+    $json = json_decode($arquivo);
+
+    function format($json){
+      for ($i=0; $i < count($json); $i++) { 
+        @$dados .= "[". ($i+1) . ", ". $json[$i]."],\n";
+      }
+      return $dados;
+    }
+  ?>
+</body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Elemento');
+      data.addColumn('number', 'Progressão');
   
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses'],
-            ['2004',  1000,      400],
-            ['2005',  1170,      460],
-            ['2006',  660,       1120],
-            ['2007',  1030,      540]
-          ]);
-  
-          var options = {
-            title: 'Company Performance',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-          };
-  
-          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-  
-          chart.draw(data, options);
+      data.addRows([
+        <?php echo format($json); ?>
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Progressão',
+          subtitle: 'aritmética ou geométrica'
+        },
+        width: 900,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
         }
-      </script>
-    </head>
-    <body>
-      <?php include 'menu.php'; ?>
-      <div id="curve_chart" style="width: 900px; height: 500px"></div>
-    </body>
-  </html>
-  
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+  <div id="line_top_x"></div>
+</html>
+
