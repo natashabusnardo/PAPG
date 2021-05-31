@@ -6,9 +6,10 @@
 </head>
 <body>
 	<?php include 'menu.php'; ?>
-	<h1>Verificador de PA ou PG</h1>
 
 	<form method="POST" action="">
+    <fieldset>
+    <legend>Verificador de PA ou PG</legend>
         <br><br>
         <label>Nome do arquivo a ser carregado: </label>
         <input id="nomearq" type="text" name="nomearq" placeholder="Nome do arquivo">
@@ -21,9 +22,9 @@
     if(isset($nomeArq)){
         $arquivo = file_get_contents($nomeArq . ".json");
         $json = json_decode($arquivo);
-        echo "Sequência:";
+        echo "<br><br><label>Sequência:</label>";
         foreach ($json as $value) {
-            echo $value . "<br>";
+            echo $value." ";
             @$soma = $soma + $value;
         }
         if($json[1]/$json[0] == $json[2] / $json[1]){
@@ -56,6 +57,7 @@
         echo "<br><br><label>Mediana: </label>".$mediana;
     }
     ?>
+</fieldset>
 </body>
 </html>
 <script>

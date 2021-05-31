@@ -2,8 +2,10 @@
 <head>
 </head>
 <body>
-<?php include 'menu.php'; ?>
+  <?php include 'menu.php'; ?>
   <form method="POST" action="">
+  <fieldset>
+  <legend>Gerador de gráfico</legend>
         <br><br>
         <label>Nome do arquivo a ser carregado: </label>
         <input id="nomearq" type="text" name="nomearq" placeholder="Nome do arquivo">
@@ -59,5 +61,6 @@
     }
   </script>
   <div id="line_top_x"></div>
+  </fieldset>
 </html>
 

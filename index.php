@@ -35,9 +35,11 @@ function pg($a1, $r, $qtdn){
 </head>
 <body>
 	<?php include 'menu.php'; ?>
-	<h1>Gerador de PA ou PG</h1>
+	
 
-	<form method="POST" action="">
+	<form method="POST" action="" id="form">
+	<fieldset>
+		<legend>Gerador de PA ou PG</legend>
 		<br><br>
         <label>A1(Primeiro termo):</label>
         <input id="a1" type="text" name="a1" placeholder="Primeiro termo">
@@ -60,6 +62,7 @@ function pg($a1, $r, $qtdn){
         <button type="reset" name="limpar" id="limpar">Limpar</button>
         <button type="submit" name="salvar" id="salvar">Salvar</button>
         <br><br>
+	</fieldset>
 	</form>
 	<?php
 
