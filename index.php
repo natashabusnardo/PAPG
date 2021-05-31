@@ -4,7 +4,7 @@ $a1 = $_POST['a1'];
 $r = $_POST['r'];
 $qtdn = $_POST['qtdn'];
 $papg = $_POST['papg'];
-$nomearq = $_POST['nomearq'];
+$nomeArq = $_POST['nomearq'];
 
 
 function pa($a1, $r, $qtdn){
@@ -66,7 +66,7 @@ function pg($a1, $r, $qtdn){
     }
     $dados_json = json_encode($array);
 
-    $fp = fopen($nomearq . ".json", "a");
+    $fp = fopen($A . ".json", "a");
     fwrite($fp, $dados_json);
     fclose($fp);
     ?>

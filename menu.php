@@ -9,7 +9,7 @@
 <nav>
   	 <ul class="menu">
 		<li><a href="index.php">Principal</a></li>
-	  	<li><a href="#">Verificar Sequência</a></li>
+	  	<li><a href="leitura.php">Verificar Sequência</a></li>
 		<li><a href="grafico.php">Gráfico</a></li>
 	</ul>
 </nav>
