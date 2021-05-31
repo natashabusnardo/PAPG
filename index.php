@@ -1,10 +1,14 @@
 <!DOCTYPE HTML>
 <?php
-$a1 = $_POST['a1'];
-$r = $_POST['r'];
-$qtdn = $_POST['qtdn'];
-$papg = $_POST['papg'];
-$nomeArq = $_POST['nomearq'];
+
+@$a1 = $_POST['a1'];
+if(isset($a1)){
+	$r = $_POST['r'];
+	$qtdn = $_POST['qtdn'];
+	$papg = $_POST['papg'];
+	$nomeArq = $_POST['nomearq'];
+}
+
 
 
 function pa($a1, $r, $qtdn){
@@ -59,20 +63,17 @@ function pg($a1, $r, $qtdn){
 	</form>
 	<?php
 
-    if ($papg == "pa") {
-        $array = pa($a1, $r, $qtdn);
+    if (@$papg == "pa") {
+        $array = pa(@$a1, @$r, @$qtdn);
     } else{
-        $array = pg($a1, $r, $qtdn);
+        $array = pg(@$a1, @$r, @$qtdn);
     }
     $dados_json = json_encode($array);
 
-    $fp = fopen($nomeArq . ".json", "w");
+    $fp = fopen(@$nomeArq . ".json", "w");
     fwrite($fp, $dados_json);
     fclose($fp);
     ?>
 	
 </body>
 </html>
-<script>
-    let btn = document.getElementById("salvar");
-</script>

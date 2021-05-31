@@ -12,7 +12,7 @@
 
 	</form>	
   <?php
-    $nomeArq = $_POST['nomearq'];
+    @$nomeArq = $_POST['nomearq'];
     $arquivo = file_get_contents($nomeArq . ".json");
     $json = json_decode($arquivo);
 
