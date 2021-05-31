@@ -10,7 +10,7 @@
   	 <ul class="menu">
 		<li><a href="index.php">Principal</a></li>
 	  	<li><a href="#">Verificar Sequência</a></li>
-		<li><a href="grafico.php">Grafico</a></li>
+		<li><a href="grafico.php">Gráfico</a></li>
 	</ul>
 </nav>
 <br><br><br>
