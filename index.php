@@ -6,6 +6,7 @@ $qtdn = $_POST['qtdn'];
 $papg = $_POST['papg'];
 $nomearq = $_POST['nomearq'];
 
+
 function pa($a1, $r, $qtdn){
 	$pa = array();
 	for ($i=0; $i < $qtdn ; $i++) { 

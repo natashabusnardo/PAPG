@@ -21,6 +21,7 @@ $json = json_decode($arquivo);
         <input id="nomearq" type="text" name="nomearq" placeholder="Nome do arquivo">
         <button type="submit" name="verificar" id="verificar">Verificar</button>
         <br><br>
+        
 	</form>	
 </body>
 </html>
